@@ -6,7 +6,7 @@
   "scripts": {
     "build": "tsc",
     "dev:tsc": "tsc --watch -p .",
-    "dev:serve": "nodemon -e js -w lib dist/main.js",
+    "dev:serve": "nodemon -e js -w lib dist/Server.js",
     "dev": "run-p dev:*"
   },
   "keywords": [],

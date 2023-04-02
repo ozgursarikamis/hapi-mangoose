@@ -21,3 +21,7 @@ process.on('unhandledRejection', (err) => {
     console.error(err);
     process.exit(1);
 });
+
+
+// Start the server
+init().then(() => start());
