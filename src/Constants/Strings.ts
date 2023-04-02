@@ -8,5 +8,5 @@ export enum Host {
     IndexRoute = '/',
     Localhost = 'localhost',
     IPAddress = '0.0.0.0',
-    Port = 4000
+    DefaultPort = 4000
 }

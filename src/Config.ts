@@ -6,12 +6,17 @@ import { Environment, Host } from "./Constants/Strings";
 import { HTTPMethods } from "./Constants/HTTPMethods";
 
 export class Config {
-    static MainEnvironmentPath: string = './env/.env';
-    static Environment: string = process.env.NODE_ENV || Environment.Development;
-    static ConfigureServer() {
+    private static MainEnvironmentPath: string = './env/.env';
+    private static Environment: string = process.env.NODE_ENV || Environment.Development;
+
+    static GetConfiguration(): void {
         const configPath = `${this.MainEnvironmentPath}.${this.Environment}`;
         dotenv.config({ path: configPath });
-        const port = process.env.PORT || Host.Port;
+    }
+
+    static ConfigureServer() {
+        this.GetConfiguration();
+        const port = process.env.PORT || Host.DefaultPort;
         const server: Server = Hapi.server({
             port,
             host: Host.IPAddress.toString()
