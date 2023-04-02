@@ -2,15 +2,21 @@
   "name": "hapi-mangoose",
   "version": "1.0.0",
   "description": "",
+  "main": "dist/main.js",
   "scripts": {
     "build": "tsc",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev:tsc": "tsc --watch -p .",
+    "dev:serve": "nodemon -e js -w lib dist/main.js",
+    "dev": "run-p dev:*"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@types/hapi": "^18.0.8",
     "@types/node": "^18.15.11",
+    "nodemon": "^2.0.22",
+    "npm-run-all": "^4.1.5",
     "typescript": "^5.0.3"
   },
   "dependencies": {
