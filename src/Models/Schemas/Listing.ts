@@ -1,7 +1,7 @@
 import mongoose, { Schema } from "mongoose";
 
 const listingSchema = new Schema({
-    _id: Object,
+    _id: mongoose.SchemaTypes.ObjectId,
     id: Number,
     name: String,
     host_id: Number,
