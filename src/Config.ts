@@ -4,6 +4,10 @@ import { MainRouteHandlers } from "./RouteHandlers/Main.RouteHandlers";
 import dotenv from 'dotenv';
 import { Environment, Host } from "./Constants/Strings";
 import { HTTPMethods } from "./Constants/HTTPMethods";
+import { CoursesRoutes } from "./RouteHandlers/Entities/Courses.Routes";
+import { CoursesHandler } from "./RouteHandlers/Entities/Courses.Handler";
+import { ListingsRoutes } from "./RouteHandlers/Entities/Listings.Routes";
+import { ListingsHandler } from "./RouteHandlers/Entities/Listings.Handler";
 
 export class Config {
     private static MainEnvironmentPath: string = './env/.env';
@@ -30,5 +34,17 @@ export class Config {
             path: Host.IndexRoute.toString(),
             handler: MainRouteHandlers.HelloWorld
         });
+
+        server.route({
+            method: HTTPMethods.GET,
+            path: '/api/v1' + CoursesRoutes.GetCourses,
+            handler: CoursesHandler.GetAllCourses
+        });
+
+        server.route({
+            method: HTTPMethods.GET,
+            path: '/api/v1' + ListingsRoutes.GetListings,
+            handler: ListingsHandler.GetAllListings
+        })
     }
 }

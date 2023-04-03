@@ -2,7 +2,7 @@
 
 import { Server } from "@hapi/hapi";
 import { Config } from "./Config";
-import { DatabaseService } from "./Services/DatabaseService";
+import { DatabaseService } from "./Services/Database.Service";
 
 export let server: Server;
 
